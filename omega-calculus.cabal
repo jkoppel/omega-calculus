@@ -1,0 +1,67 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 3ffcc9fa5977dd24b2e5af85a0947bc43c0bde6c1b8750de48717ba033a0ba24
+
+name:           omega-calculus
+version:        0.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/omega-calculus#readme>
+homepage:       https://github.com/githubuser/omega-calculus#readme
+bug-reports:    https://github.com/githubuser/omega-calculus/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2020 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/omega-calculus
+
+library
+  exposed-modules:
+      Language.Omega
+  other-modules:
+      Paths_omega_calculus
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , mtl
+    , prettyprinter
+    , text
+  default-language: Haskell2010
+
+executable omega-calculus-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_omega_calculus
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , omega-calculus
+    , prettyprinter
+  default-language: Haskell2010
+
+test-suite omega-calculus-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_omega_calculus
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , omega-calculus
+  default-language: Haskell2010
