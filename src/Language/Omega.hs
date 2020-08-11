@@ -422,5 +422,5 @@ instance Pretty Env where
       prettyBinding (v, clo) = pretty v <> "→" <> pretty clo
 
 instance Pretty ΩVal where
-  pretty (ValLit l)      = pretty l
+  pretty (ValLit l)     = pretty l
   pretty (ValClosure c) = pretty c
