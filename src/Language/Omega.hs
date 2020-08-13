@@ -321,7 +321,7 @@ instance Fractional ΩTerm where
 
 
 -- | With much abuse of notation, allows writing
---   `lett "x" (=:) (a+b) inn x + 1`
+--   `lett "x" (.=) (a+b) inn x + 1`
 
 data AssnToken = AssnToken
 data InnToken = InnToken
