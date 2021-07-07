@@ -7,7 +7,7 @@ import Language.Omega
 import Data.Text.Prettyprint.Doc
 
 main :: IO ()
-main = print $ map pretty $ runExhaustiveSearch (eval emptyEnv exRebindRefOriginal) (BoundedInt 0 6)
+main = print $ map pretty $ runExhaustiveSearch (eval emptyEnv ex2) (BoundedInt 0 6)
 
 
 ----------------------------------------------------
@@ -47,3 +47,10 @@ exRebindRefOriginal :: ΩTerm
 exRebindRefOriginal = lett "c" (.=) 2 inn $
                         lett "d" (.=) ("c" * 3) inn $
                           (ΩDo "d" "c" ("c" * 2))
+
+
+ex2 :: ΩTerm
+ex2 = lett "unif" (.=) (Ωλ "j" ΩTInt (Ωλ "w" (ΩTInt :->: ΩTReal) (ΩApp "w" "j"))) inn $
+        lett "x" (.=) (Ωλ "ωq" (ΩTInt :->: ΩTReal) (ΩApp (ΩApp "unif" 1) "ωq")) inn $
+        lett "ω" (.=) (Ωλ "i" ΩTInt $ iff ("i" .== 1) thenn 0.2 elsee 0.5) inn $
+          (ΩApp "x" "ω")

@@ -389,6 +389,7 @@ instance Pretty Lit where
 instance Pretty ΩTerm where
   pretty (ΩLit l)          = pretty l
   pretty (ΩVar v)          = pretty v
+  pretty (ΩClosure c)      = pretty c
   pretty (Ωλ v typ term)   = sep [ "λ" <> pretty v <+> ":" <+> pretty typ <> "."
                                  , nest 4 $ pretty term
                                  ]
